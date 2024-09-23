@@ -191,10 +191,3 @@ class MyApp:
                 return endpoint, func_args
         raise NotImplementedError("Not found")
 
-
-if __name__ == "__main__":
-    HOST = "localhost"
-    PORT = 8000
-    BASE_URL = f"http://{HOST}:{PORT}"
-    ans = requests.get(BASE_URL + "/mean", json=[1, 2, 3])
-    print(ans.content)
