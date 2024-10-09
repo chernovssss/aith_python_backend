@@ -1,15 +1,9 @@
 import inspect
 import json
 import re
-from inspect import Parameter
 from json import JSONDecodeError
 from typing import Any, Callable, Awaitable, Optional, Mapping
 from urllib.parse import parse_qs, urlsplit
-
-import requests
-from huggingface_hub import scale_to_zero_inference_endpoint
-from paddle.base.libpaddle.eager.ops.legacy import data_norm
-from urllib3 import request
 
 Scope = dict[str, Any]
 Receive = Callable[[], Awaitable[dict[str, Any]]]
@@ -190,4 +184,3 @@ class MyApp:
                         func_args[p.name] = data
                 return endpoint, func_args
         raise NotImplementedError("Not found")
-
